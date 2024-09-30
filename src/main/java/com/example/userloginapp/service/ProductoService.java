@@ -2,6 +2,7 @@
 package com.example.userloginapp.service;
 
 import com.example.userloginapp.model.Producto;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -19,4 +20,7 @@ public interface ProductoService {
     public Optional<Producto>get(Integer id);//Nos da la ventaja de ver si el objeto está o no en la bdd
     public void update(Producto producto);
     public void delete(Integer id );
+    public List<Producto> findAll();
+    
+    
 }
