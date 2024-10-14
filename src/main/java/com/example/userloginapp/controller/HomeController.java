@@ -1,7 +1,9 @@
 
 package com.example.userloginapp.controller;
 
+import com.example.userloginapp.model.Producto;
 import com.example.userloginapp.service.ProductoService;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,13 @@ public class HomeController {
     }
     
     @GetMapping("productohome/{id}")
-    public String productoHome(@PathVariable Integer id){
+    public String productoHome(@PathVariable Integer id, Model model){ //model nos permite llevar info a la vista
         log.info("Id enviado como parametro",id);
+        Producto producto = new Producto();
+        Optional<Producto>productoOptional=productoService.get(id);
+        producto = productoOptional.get();
+        
+        model.addAttribute("producto",producto);
         return "usuario/productohome";
         
         
