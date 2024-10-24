@@ -72,6 +72,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                                     <configuration>
+                <fork>true</fork> <!-- Esto permite que los cambios se reflejen en caliente -->
+            </configuration>
 			</plugin>
 		</plugins>
 	</build>
